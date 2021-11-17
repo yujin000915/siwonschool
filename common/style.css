@@ -5,3 +5,42 @@ html,body {
 	padding: 0;
 	box-sizing: border-box;
 }
+
+html {
+	height: 100%;
+}
+
+#header {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#daily_wrap {
+	position: relative;
+	height: 500%;
+	background: #000;
+	overflow-x: hidden;
+}
+
+#hero_lightpass {
+	z-index: 1;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 65vw;
+	max-height: 65vh;
+}
+
+#footer {
+	z-index: 2;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
