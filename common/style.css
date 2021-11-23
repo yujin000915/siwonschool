@@ -23,30 +23,11 @@ html, body {
   width: 100%;
 }
 
-/*
-.apple {
-	position: relative;
-	width: 100%;
-	height: 500%;
-	background: #000;
-	overflow-x: hidden;
-}
-
-.apple #hero_lightpass {
-	z-index: 1;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	max-width: 65vw;
-	max-height: 65vh;
-}
-*/
 .daily_wrapper {
+  width: 100%;
   padding-top: 140px;
 }
-
-.main_txt {
+.daily_wrapper .main_txt {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,18 +35,46 @@ html, body {
   width: 100%;
   height: calc(100vh - 140px);
 }
-.main_txt .outer {
+.daily_wrapper .main_txt .outer {
   padding-bottom: 35px;
   border-bottom: solid #000 2px;
   overflow: hidden;
 }
-.main_txt .outer .inner {
+.daily_wrapper .main_txt .outer .inner {
   position: relative;
   font-weight: 700;
   font-size: 65px;
   color: #000;
   line-height: 1.8;
 }
-.main_txt .outer .inner span {
+.daily_wrapper .main_txt .outer .inner span {
   color: rgba(0, 0, 0, 0.2);
+}
+.daily_wrapper .apple {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+}
+.daily_wrapper .apple #hero_lightpass {
+  max-width: 50vw;
+}
+.daily_wrapper .apple .back_black {
+  position: absolute;
+  top: calc(50% - 120px);
+  left: 0;
+  width: 100%;
+  height: 240px;
+  font-weight: 700;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.8;
+}
+.daily_wrapper .apple .back_black span {
+  color: rgba(255, 255, 255, 0.3);
 }/*# sourceMappingURL=style.css.map */

@@ -8,25 +8,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- webfont -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="//fonts.googleapis.com">
+		<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+		<link href="//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 		<link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css?t=1" rel="stylesheet">
 
 		<!-- css -->
 		<link rel="stylesheet" href="./common/style.css">
-		<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+		<link rel="Stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css">
+		<link rel="stylesheet" href="./vendor/animate.css">
 
 		<!-- script -->
-		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
-    	<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+		<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+		<script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js"></script>
+		<script src="./vendor/wow.min.js"></script>
 
 		<!-- title -->
 		<title>인터렉티브 웹을 활용한 시원스쿨 랜딩 페이지</title>
@@ -38,12 +40,7 @@
 		</div>
 
 		<div class="daily_wrapper">
-			<!-- Apple AirPod PRO
-			<section class="apple">
-				<canvas id="hero_lightpass"></canvas>
-			</section> -->
-
-			<div class="main_txt example-classname">
+			<div class="main_txt scroll_ani">
 				<div class="outer">
 					<div class="inner">
 						SIWONSCHOOL
@@ -56,7 +53,7 @@
 				</div>
 			</div>
 
-			<div class="main_txt example-classname">
+			<div class="main_txt scroll_ani">
 				<div class="outer">
 					<div class="inner">
 						1일 1장<span>,</span>
@@ -68,7 +65,7 @@
 				</div>
 			</div>
 
-			<div class="main_txt example-classname">
+			<div class="main_txt scroll_ani">
 				<div class="outer">
 					<div class="inner">
 						<span>상황에 따라</span>
@@ -77,21 +74,33 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Apple AirPod PRO -->
+			<section class="apple">
+				<canvas id="hero_lightpass"></canvas>
+
+				<div class="back_black wow bounceInUp" data-wow-duration="3s" data-wow-delay="2s">
+					<span>상황에 따라</span>
+					<br>
+					가볍게 <span>골라서 </span>보세요!
+				</div>
+			</section>
 		</div>
 
  		<div class="footer">
 			<img src="./image/footer.jpg" alt="시원스쿨 학습지 사이트 FOOTER">
 		</div>
 
-
 		<script>
 			$( document ).ready(function() {
+
+				// WOW.JS
+				new WOW().init();
 
 				// TEXT SCROLL  = SrollMagic 사용
 				var ctrl = new ScrollMagic.Controller();
 
-					// Create scenes in jQuery each() loop
-					$( '.main_txt' ).each(function(i) {
+				$( '.main_txt' ).each(function(i) {
 					var inner = $( this ).find( '.inner' );
 					var outer = $( this ).find( '.outer' );
 					var tl = new TimelineMax();
@@ -103,92 +112,89 @@
 						triggerElement: this,
 						triggerHook: 0.15
 					})
+
 					.setTween( tl )
 					.addIndicators({
-					colorTrigger: 'white',
-					colorStart: 'white',
-					colorEnd: 'white',
-					indent: 40
+						colorTrigger: 'white',
+						colorStart: 'white',
+						colorEnd: 'white',
+						indent: 40
 					})
 					.addTo( ctrl );
-
 				});
 
-			});
+				$(function() {
+					$.scrollify({
+						section : '.scroll_ani',
+					});
+				});
 
-			$(function() {
 				$.scrollify({
-					section : ".example-classname",
+					section : '.scroll_ani',
+					sectionName : 'section-name',
+					interstitialSection : '',
+					easing: 'easeOutExpo',
+					scrollSpeed: 1100,
+					offset : 0,
+					scrollbars: true,
+					standardScrollElements: '',
+					setHeights: true,
+					overflowScroll: true,
+					updateHash: true,
+					touchScroll:true,
+					before:function() {},
+					after:function() {},
+					afterResize:function() {},
+					afterRender:function() {}
 				});
+
 			});
 
-			$.scrollify({
-				section : ".example-classname",
-				sectionName : "section-name",
-				interstitialSection : "",
-				easing: "easeOutExpo",
-				scrollSpeed: 1100,
-				offset : 0,
-				scrollbars: true,
-				standardScrollElements: "",
-				setHeights: true,
-				overflowScroll: true,
-				updateHash: true,
-				touchScroll:true,
-				before:function() {},
-				after:function() {},
-				afterResize:function() {},
-				afterRender:function() {}
+			// Apple AirPod PRO
+			const html = document.documentElement;
+			const canvas = document.getElementById( 'hero_lightpass' );
+			const context = canvas.getContext( '2d' );
+
+			const frameCount = 148;
+			const currentFrame = index => (
+				`//www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+			)
+
+			const preloadImages = () => {
+				for ( let i = 1; i < frameCount; i++ ) {
+					const img = new Image();
+					img.src = currentFrame( i );
+				}
+			};
+
+			const img = new Image()
+				img.src = currentFrame( 1 );
+				canvas.width = 1158;
+				canvas.height = 770;
+				img.onload = function(){
+				context.drawImage( img, 0, 0 );
+			}
+
+			const updateImage = index => {
+				img.src = currentFrame( index );
+				context.drawImage( img, 0, 0 );
+			}
+
+			window.addEventListener( 'scroll', () => {
+				const scrollTop = html.scrollTop;
+				const maxScrollTop = html.scrollHeight - window.innerHeight;
+				const scrollFraction = scrollTop / maxScrollTop;
+				const frameIndex = Math.min(
+					frameCount - 1,
+					Math.ceil( scrollFraction * frameCount )
+				);
+
+				requestAnimationFrame( () => updateImage( frameIndex + 1 ) )
 			});
+
+			preloadImages()
 		</script>
-
-		<!--
-			$( document ).ready(function() {
-
-				// Apple AirPod PRO
-				// const html = document.documentElement;
-				// const canvas = document.getElementById( 'hero_lightpass' );
-				// const context = canvas.getContext( '2d' );
-
-				// const frameCount = 148;
-				// const currentFrame = index => (
-				// 	`//www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
-				// )
-
-				// const preloadImages = () => {
-				// 	for ( let i = 1; i < frameCount; i++ ) {
-				// 		const img = new Image();
-				// 		img.src = currentFrame( i );
-				// 	}
-				// };
-
-				// const img = new Image()
-				// 	img.src = currentFrame( 1 );
-				// 	canvas.width = 1158;
-				// 	canvas.height = 770;
-				// 	img.onload = function(){
-				// 	context.drawImage( img, 0, 0 );
-				// }
-
-				// const updateImage = index => {
-				// 	img.src = currentFrame( index );
-				// 	context.drawImage( img, 0, 0 );
-				// }
-
-				// window.addEventListener( 'scroll', () => {
-				// 	const scrollTop = html.scrollTop;
-				// 	const maxScrollTop = html.scrollHeight - window.innerHeight;
-				// 	const scrollFraction = scrollTop / maxScrollTop;
-				// 	const frameIndex = Math.min(
-				// 		frameCount - 1,
-				// 		Math.ceil( scrollFraction * frameCount )
-				// 	);
-
-				// 	requestAnimationFrame( () => updateImage( frameIndex + 1 ) )
-				// });
-
-				// preloadImages()
-			}); -->
 	</body>
+
 </html>
 

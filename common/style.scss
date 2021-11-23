@@ -25,54 +25,74 @@ html,body {
 	width: 100%;
 }
 
-/*
-.apple {
-	position: relative;
-	width: 100%;
-	height: 500%;
-	background: #000;
-	overflow-x: hidden;
-}
 
-.apple #hero_lightpass {
-	z-index: 1;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	max-width: 65vw;
-	max-height: 65vh;
-}
-*/
+
 
 
 .daily_wrapper {
-	padding-top: 140px;
-}
-
-.main_txt {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	width: 100%;
-	height: calc(100vh - 140px);
+	padding-top: 140px;
 
-	.outer {
-		padding-bottom: 35px;
-		border-bottom: solid #000 2px;
-		overflow: hidden;
+	.main_txt {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: calc(100vh - 140px);
 
-		.inner {
-			position: relative;
+		.outer {
+			padding-bottom: 35px;
+			border-bottom: solid #000 2px;
+			overflow: hidden;
+
+			.inner {
+				position: relative;
+				font-weight: 700;
+				font-size: 65px;
+				color: #000;
+				line-height: 1.8;
+
+				span {
+					color: rgba(0, 0, 0, 0.2);
+				}
+			}
+
+		}
+	}
+
+	.apple {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+		background: #000;
+
+		#hero_lightpass {
+			max-width: 50vw;
+		}
+
+
+		.back_black {
+			position: absolute;
+			top: calc(50% - 120px);
+			left: 0;
+			width: 100%;
+			height: 240px;
 			font-weight: 700;
-			font-size: 65px;
-			color: #000;
+			font-size: 80px;
+			color: #fff;
+			text-align: center;
+			vertical-align: middle;
 			line-height: 1.8;
 
 			span {
-				color: rgba(0, 0, 0, 0.2)
+				color: rgba(255, 255, 255, 0.3);
 			}
 		}
 	}
+
 }
+
