@@ -16,7 +16,6 @@
 		<!-- css -->
 		<link rel="stylesheet" href="./common/style.css">
 		<link rel="Stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css">
-		<link rel="stylesheet" href="./vendor/animate.css">
 
 		<!-- script -->
 		<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
@@ -28,7 +27,6 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js"></script>
-		<script src="./vendor/wow.min.js"></script>
 
 		<!-- title -->
 		<title>인터렉티브 웹을 활용한 시원스쿨 랜딩 페이지</title>
@@ -79,11 +77,15 @@
 			<section class="apple">
 				<canvas id="hero_lightpass"></canvas>
 
-				<div class="back_black wow bounceInUp" data-wow-duration="3s" data-wow-delay="2s">
-					<span>상황에 따라</span>
-					<br>
-					가볍게 <span>골라서 </span>보세요!
-				</div>
+				<section class="main_txt dark_bg scroll_ani">
+					<div class="outer" >
+						<div class="inner">
+							<span>상황에 따라</span>
+							<br>
+							가볍게 <span>골라서 </span>보세요!
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 
@@ -94,10 +96,7 @@
 		<script>
 			$( document ).ready(function() {
 
-				// WOW.JS
-				new WOW().init();
-
-				// TEXT SCROLL  = SrollMagic 사용
+				// SrollMagic 사용
 				var ctrl = new ScrollMagic.Controller();
 
 				$( '.main_txt' ).each(function(i) {
@@ -115,9 +114,9 @@
 
 					.setTween( tl )
 					.addIndicators({
-						colorTrigger: 'white',
-						colorStart: 'white',
-						colorEnd: 'white',
+						colorTrigger: 'blue',
+						colorStart: 'green',
+						colorEnd: 'red',
 						indent: 40
 					})
 					.addTo( ctrl );
