@@ -15,185 +15,40 @@
 
 		<!-- css -->
 		<link rel="stylesheet" href="./common/style.css">
-		<link rel="Stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css">
 
 		<!-- script -->
-		<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
-		<script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js"></script>
 
 		<!-- title -->
 		<title>인터렉티브 웹을 활용한 시원스쿨 랜딩 페이지</title>
 	</head>
 
-	<body id="daily_wrap">
+	<body>
 		<div class="header">
 			<img src="./image/header.jpg" alt="시원스쿨 학습지 사이트 HEADER">
 		</div>
 
-		<div class="daily_wrapper">
-			<div class="main_txt scroll_ani">
-				<div class="outer">
-					<div class="inner">
-						SIWONSCHOOL
-						<br>
-						<span>영어</span> 진짜 학습지
-						<br>
-						기초<span>부터</span> 말하기<span>까지 책임보장!</span>
-						<br>마스터 PACK.
-					</div>
-				</div>
-			</div>
+		<h1>CSS Rransform</h1>
 
-			<div class="main_txt scroll_ani">
-				<div class="outer">
-					<div class="inner">
-						1일 1장<span>,</span>
-						<br>
-						하루 10분
-						<br>
-						<span>나의 </span>영어 <span>실력이 변화하는 </span>습관!
-					</div>
-				</div>
-			</div>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
 
-			<div class="main_txt scroll_ani">
-				<div class="outer">
-					<div class="inner">
-						<span>상황에 따라</span>
-						<br>
-						가볍게 <span>골라서 </span>보세요!
-					</div>
-				</div>
-			</div>
-
-			<!-- Apple AirPod PRO -->
-			<section class="apple">
-				<canvas id="hero_lightpass"></canvas>
-
-				<section class="main_txt dark_bg scroll_ani">
-					<div class="outer" >
-						<div class="inner">
-							<span>상황에 따라</span>
-							<br>
-							가볍게 <span>골라서 </span>보세요!
-						</div>
-					</div>
-				</section>
-			</section>
+		<div class="box_container">
+			<div class="box">A</div>
+			<div class="box">B</div>
+			<div class="box">C</div>
+			<div class="box">D</div>
+			<div class="box">E</div>
 		</div>
+
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+
 
  		<div class="footer">
 			<img src="./image/footer.jpg" alt="시원스쿨 학습지 사이트 FOOTER">
 		</div>
-
-		<script>
-			$( document ).ready(function() {
-
-				// SrollMagic 사용
-				var ctrl = new ScrollMagic.Controller();
-
-				$( '.main_txt' ).each(function(i) {
-					var inner = $( this ).find( '.inner' );
-					var outer = $( this ).find( '.outer' );
-					var tl = new TimelineMax();
-
-					tl.from( outer, 0.25, { scaleX: 0 } );
-					tl.from( inner, 0.65, { yPercent: 100, ease: Back.easeOut } );
-
-					new ScrollMagic.Scene( {
-						triggerElement: this,
-						triggerHook: 0.15
-					})
-
-					.setTween( tl )
-					.addIndicators({
-						colorTrigger: 'blue',
-						colorStart: 'green',
-						colorEnd: 'red',
-						indent: 40
-					})
-					.addTo( ctrl );
-				});
-
-				$(function() {
-					$.scrollify({
-						section : '.scroll_ani',
-					});
-				});
-
-				$.scrollify({
-					section : '.scroll_ani',
-					sectionName : 'section-name',
-					interstitialSection : '',
-					easing: 'easeOutExpo',
-					scrollSpeed: 1100,
-					offset : 0,
-					scrollbars: true,
-					standardScrollElements: '',
-					setHeights: true,
-					overflowScroll: true,
-					updateHash: true,
-					touchScroll:true,
-					before:function() {},
-					after:function() {},
-					afterResize:function() {},
-					afterRender:function() {}
-				});
-
-			});
-
-			// Apple AirPod PRO
-			const html = document.documentElement;
-			const canvas = document.getElementById( 'hero_lightpass' );
-			const context = canvas.getContext( '2d' );
-
-			const frameCount = 148;
-			const currentFrame = index => (
-				`//www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
-			)
-
-			const preloadImages = () => {
-				for ( let i = 1; i < frameCount; i++ ) {
-					const img = new Image();
-					img.src = currentFrame( i );
-				}
-			};
-
-			const img = new Image()
-				img.src = currentFrame( 1 );
-				canvas.width = 1158;
-				canvas.height = 770;
-				img.onload = function(){
-				context.drawImage( img, 0, 0 );
-			}
-
-			const updateImage = index => {
-				img.src = currentFrame( index );
-				context.drawImage( img, 0, 0 );
-			}
-
-			window.addEventListener( 'scroll', () => {
-				const scrollTop = html.scrollTop;
-				const maxScrollTop = html.scrollHeight - window.innerHeight;
-				const scrollFraction = scrollTop / maxScrollTop;
-				const frameIndex = Math.min(
-					frameCount - 1,
-					Math.ceil( scrollFraction * frameCount )
-				);
-
-				requestAnimationFrame( () => updateImage( frameIndex + 1 ) )
-			});
-
-			preloadImages()
-		</script>
 	</body>
-
 </html>
 
