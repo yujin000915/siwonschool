@@ -2,23 +2,285 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   overflow-x: hidden;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  height: 800vw;
+}
+
+.progress_bar_con {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5px;
+  background: #555;
+}
+
+.progress_bar_con .progress_bar {
+  width: 0%;
+  height: 100%;
+  background: #91d835;
+}
+
+.world {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.world .stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.world .stage .house {
+  width: 100vw;
+  height: 100vh;
+  -webkit-transform: translateZ(-490VW);
+          transform: translateZ(-490VW);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.world .stage .house .wall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+
+.world .stage .house .wall_front.wall_front_a {
+  -webkit-transform: translateZ(450vw);
+          transform: translateZ(450vw);
+}
+
+.world .stage .house .wall_front.wall_front_b {
+  -webkit-transform: translateZ(300vw);
+          transform: translateZ(300vw);
+}
+
+.world .stage .house .wall_front.wall_front_c {
+  -webkit-transform: translateZ(150vw);
+          transform: translateZ(150vw);
+}
+
+.world .stage .house .wall_front.wall_front_d {
+  -webkit-transform: translateZ(0vw);
+          transform: translateZ(0vw);
+}
+
+.world .stage .house .wall_front.wall_front_e {
+  -webkit-transform: translateZ(-150vw);
+          transform: translateZ(-150vw);
+}
+
+.world .stage .house .wall_front.wall_front_f {
+  -webkit-transform: translateZ(-300vw);
+          transform: translateZ(-300vw);
+}
+
+.world .stage .house .wall_front.wall_front_f .wall_content {
+  position: relative;
+}
+
+.world .stage .house .wall_front.wall_front_f .wall_content .swip_icon {
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  height: 65px;
+  padding: 0 50px;
+  background: #000;
+}
+
+.world .stage .house .wall_front.wall_front_f .wall_content .swip_icon i {
+  -webkit-animation: swip_ani 0.5s infinite alternate;
+          animation: swip_ani 0.5s infinite alternate;
+}
+
+.world .stage .house .wall_front.wall_front_f .wall_content .swip_icon h1 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.world .stage .house .wall_front.wall_front_f .wall_content .sl_book .swiper-slide img {
+  width: 100%;
+}
+
+.world .stage .house .wall_front.wall_front_g {
+  -webkit-transform: translateZ(-520vw);
+          transform: translateZ(-520vw);
+}
+
+.world .stage .house .wall_front .wall_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.world .stage .house .wall_front .wall_content .wall_tit {
+  font-size: 5rem;
+}
+
+@-webkit-keyframes swip_ani {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(-25px);
+            transform: translateX(-25px);
+  }
+}
+
+@keyframes swip_ani {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(-25px);
+            transform: translateX(-25px);
+  }
+}
+
+@-webkit-keyframes spaceship_ani {
+  to {
+    background-position: -1295px 0;
+  }
+}
+
+@keyframes spaceship_ani {
+  to {
+    background-position: -1295px 0;
+  }
+}
+
+.spaceship {
+  width: 185px;
+  height: 250px;
+  background: url("../image/books02.png") no-repeat 0 0/auto 250px;
+  -webkit-animation: spaceship_ani 2s infinite steps(7);
+          animation: spaceship_ani 2s infinite steps(7);
+}
+
+.world_02 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 80vh;
+  background: skyblue;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+}
+
+.world_02 .card_side {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 150px;
+  border-radius: 0.5em;
+  font-size: 1.5rem;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.world_02 .card_side_front {
+  z-index: 1;
+  background: #fff;
+}
+
+.world_02 .card_side_back {
+  background: red;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.world_02 .world:hover .card_side_front {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.world_02 .world:hover .card_side_back {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
 }
 
 .box_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
-.box {
+.box_container .box {
   width: 100px;
   height: 100px;
   border: 2px solid #000;
   background: rgba(255, 255, 0, 0.7);
+  -webkit-transition: 1s;
   transition: 1s;
 }
 
-.box:hover {
-  transform: scale(1.5);
-}/*# sourceMappingURL=style.css.map */
+.box_container .box:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+/*# sourceMappingURL=style.css.map */
