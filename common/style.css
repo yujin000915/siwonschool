@@ -3,10 +3,9 @@ html, body {
   margin: 0;
   padding: 0;
   border: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 html {
@@ -24,10 +23,9 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 5px;
+  height: 10px;
   background: #555;
 }
-
 .progress_bar_con .progress_bar {
   width: 0%;
   height: 100%;
@@ -40,29 +38,22 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  perspective: 1000px;
 }
-
 .world .stage {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
-
 .world .stage .house {
   width: 100vw;
   height: 100vh;
-  -webkit-transform: translateZ(-490VW);
-          transform: translateZ(-490VW);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform: translateZ(-490VW);
+  transform-style: preserve-3d;
 }
-
 .world .stage .house .wall {
   position: absolute;
   top: 0;
@@ -71,216 +62,106 @@ body {
   height: 100vh;
   background: white;
 }
-
-.world .stage .house .wall_front.wall_front_a {
-  -webkit-transform: translateZ(450vw);
-          transform: translateZ(450vw);
-}
-
-.world .stage .house .wall_front.wall_front_b {
-  -webkit-transform: translateZ(300vw);
-          transform: translateZ(300vw);
-}
-
-.world .stage .house .wall_front.wall_front_c {
-  -webkit-transform: translateZ(150vw);
-          transform: translateZ(150vw);
-}
-
-.world .stage .house .wall_front.wall_front_d {
-  -webkit-transform: translateZ(0vw);
-          transform: translateZ(0vw);
-}
-
-.world .stage .house .wall_front.wall_front_e {
-  -webkit-transform: translateZ(-150vw);
-          transform: translateZ(-150vw);
-}
-
-.world .stage .house .wall_front.wall_front_f {
-  -webkit-transform: translateZ(-300vw);
-          transform: translateZ(-300vw);
-}
-
-.world .stage .house .wall_front.wall_front_f .wall_content {
-  position: relative;
-}
-
-.world .stage .house .wall_front.wall_front_f .wall_content .swip_icon {
-  position: absolute;
-  top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
+.world .stage .house .wall_front .wall_content {
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: auto;
-  height: 65px;
-  padding: 0 50px;
-  background: #000;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-
-.world .stage .house .wall_front.wall_front_f .wall_content .swip_icon i {
+.world .stage .house .wall_front .wall_content .wall_tit {
+  font-size: 5rem;
+  text-align: center;
+}
+.world .stage .house .wall_front_a {
+  position: relative;
+  transform: translateZ(450vw);
+}
+.world .stage .house .wall_front_a .siwon_pen {
+  position: absolute;
+  top: 45%;
+  right: 15%;
   -webkit-animation: swip_ani 0.5s infinite alternate;
           animation: swip_ani 0.5s infinite alternate;
 }
-
-.world .stage .house .wall_front.wall_front_f .wall_content .swip_icon h1 {
+.world .stage .house .wall_front_b {
+  transform: translateZ(300vw);
+}
+.world .stage .house .wall_front_c {
+  transform: translateZ(150vw);
+}
+.world .stage .house .wall_front_d {
+  transform: translateZ(0vw);
+}
+.world .stage .house .wall_front_e {
+  transform: translateZ(-150vw);
+}
+.world .stage .house .wall_front_f {
+  transform: translateZ(-300vw);
+}
+.world .stage .house .wall_front_f .wall_content {
+  position: relative;
+}
+.world .stage .house .wall_front_f .wall_content .swip_icon {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 60px;
+  padding: 0 50px;
+  background: #000;
   font-weight: 400;
   font-size: 1.5rem;
   color: #fff;
 }
-
-.world .stage .house .wall_front.wall_front_f .wall_content .sl_book .swiper-slide img {
+.world .stage .house .wall_front_f .wall_content .sl_book {
+  width: 90%;
+  margin-top: 100px;
+}
+.world .stage .house .wall_front_f .wall_content .sl_book .swiper-slide img {
   width: 100%;
 }
-
-.world .stage .house .wall_front.wall_front_g {
-  -webkit-transform: translateZ(-520vw);
-          transform: translateZ(-520vw);
+.world .stage .house .wall_front_f .wall_content .sl_book .navigation {
+  position: absolute;
+  top: 37%;
+  left: 15px;
+  width: 84vw;
 }
-
-.world .stage .house .wall_front .wall_content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
+.world .stage .house .wall_front_f .wall_content .sl_book .navigation .arrows {
+  z-index: 99;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  border: none;
+  background: #fff url("../image/sl_arrow.png") no-repeat;
+  background-size: 30px;
+  background-position: 25px center;
+  cursor: pointer;
 }
-
-.world .stage .house .wall_front .wall_content .wall_tit {
-  font-size: 5rem;
+.world .stage .house .wall_front_f .wall_content .sl_book .navigation .arrows.next {
+  transform: rotate(180deg);
+  right: -50px;
+}
+.world .stage .house .wall_front_g {
+  transform: translateZ(-530vw);
 }
 
 @-webkit-keyframes swip_ani {
   from {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(-30px);
   }
   to {
-    -webkit-transform: translateX(-25px);
-            transform: translateX(-25px);
+    transform: translateX(0px);
   }
 }
 
 @keyframes swip_ani {
   from {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(-30px);
   }
   to {
-    -webkit-transform: translateX(-25px);
-            transform: translateX(-25px);
+    transform: translateX(0px);
   }
-}
-
-@-webkit-keyframes spaceship_ani {
-  to {
-    background-position: -1295px 0;
-  }
-}
-
-@keyframes spaceship_ani {
-  to {
-    background-position: -1295px 0;
-  }
-}
-
-.spaceship {
-  width: 185px;
-  height: 250px;
-  background: url("../image/books02.png") no-repeat 0 0/auto 250px;
-  -webkit-animation: spaceship_ani 2s infinite steps(7);
-          animation: spaceship_ani 2s infinite steps(7);
-}
-
-.world_02 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 80vh;
-  background: skyblue;
-  -webkit-perspective: 500px;
-          perspective: 500px;
-}
-
-.world_02 .card_side {
-  position: absolute;
-  top: calc(50% - 75px);
-  left: calc(50% - 50px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100px;
-  height: 150px;
-  border-radius: 0.5em;
-  font-size: 1.5rem;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.world_02 .card_side_front {
-  z-index: 1;
-  background: #fff;
-}
-
-.world_02 .card_side_back {
-  background: red;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-.world_02 .world:hover .card_side_front {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-.world_02 .world:hover .card_side_back {
-  -webkit-transform: rotateY(360deg);
-          transform: rotateY(360deg);
-}
-
-.box_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.box_container .box {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #000;
-  background: rgba(255, 255, 0, 0.7);
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.box_container .box:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
