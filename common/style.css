@@ -102,6 +102,9 @@ body {
 .world .stage .house .wall_front_e {
   transform: translateZ(-150vw);
 }
+.world .stage .house .wall_front_e * {
+  cursor: url("../image/siwonpen_1.cur") 10 10, auto !important;
+}
 .world .stage .house .wall_front_f {
   transform: translateZ(-300vw);
 }

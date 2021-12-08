@@ -115,6 +115,10 @@ body {
 
 			.wall_front_e {
 				transform: translateZ(-150vw);
+
+				* {
+					cursor: url('../image/siwonpen_1.cur') 10 10, auto !important;
+				}
 			}
 
 			// swiper
