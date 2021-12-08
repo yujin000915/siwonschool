@@ -95,6 +95,14 @@ body {
 
 			.wall_front_b {
 				transform: translateZ(300vw);
+
+				.btn_video {
+					position: absolute;
+					top: 25%;
+					left: 18%;
+					width: 64%;
+					height: 41%;
+				}
 			}
 
 			.wall_front_c {
@@ -184,9 +192,6 @@ body {
 		transform: translateX(0px);
 	}
 }
-
-
-
 
 
 

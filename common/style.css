@@ -86,6 +86,13 @@ body {
 .world .stage .house .wall_front_b {
   transform: translateZ(300vw);
 }
+.world .stage .house .wall_front_b .btn_video {
+  position: absolute;
+  top: 25%;
+  left: 18%;
+  width: 64%;
+  height: 41%;
+}
 .world .stage .house .wall_front_c {
   transform: translateZ(150vw);
 }
