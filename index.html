@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 	<head>
 		<!-- meta -->
@@ -9,85 +8,142 @@
 
 		<!-- css -->
 		<link rel="stylesheet"  href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-		<link rel="stylesheet" href="./common/style.css">
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/toeicpack.min.css">
 
 		<!-- script -->
-		<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+		<script src="//unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+		<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
 
 		<!-- title -->
-		<title>인터렉티브 웹</title>
+		<title>시원스쿨LAB 토익학습지</title>
 	</head>
 
-	<style>
-		html {
-			height: 100vh;
-		}
-
-		body {
-			height: 500vh;
-		}
-
-		canvas {
-			position: fixed;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			max-width: 100vw;
-			max-height: 100vh;
-		}
-
-		img {
-			width: 100%;
-		}
-	</style>
-
 	<body>
-		<canvas id="hero-lightpass">
-	</body>
+		<canvas id="canvas" width="1080" height="1000"></canvas>
+
+		<!-- npm으로 설치한 것 처럼 사용가능 -->
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+						"GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
+						"OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
+				}
+			}
+		</script>
+
+		<script type="module">
+			import * as THREE from 'three';
+			import { GLTFLoader } from 'GLTFLoader'; // gltf 이미지 사용
+			import { OrbitControls } from 'OrbitControls'; // 마우스 컨트롤
+
+			let scene = new THREE.Scene();
+			let renderer = new THREE.WebGLRenderer({
+				canvas: document.querySelector('#canvas'),
+				antialias: true // 테두리 계단현상 제거
+			});
+			renderer.outputEncoding = THREE.sRGBEncoding; // 색 밝게
+
+			let camera = new THREE.PerspectiveCamera(30, 1); // 원근법 적용 (원근법 무시:OrthographicCamera)
+			camera.position.set(0, 0, 1) // 숫자가 클수록 멀어짐
+
+			scene.background = new THREE.Color('white'); // 조명 & 배경
+			let light = new THREE.DirectionalLight(0xffff00, 2);
+			scene.add(light);
+
+			// OrbitControls 생성 및 설정
+			let controls = new OrbitControls(camera, renderer.domElement);
+			controls.enableDamping = true; // 부드러운 감속 설정
+			controls.dampingFactor = 0.05; // 감속 계수 설정
+			controls.rotateSpeed = 0.5; // 회전 속도 설정
+			controls.zoomSpeed = 0.5; // 줌 속도 설정
+			controls.panSpeed = 0.5; // 패닝 속도 설정
+
+			let loader = new GLTFLoader(); // GLTF 파일 가져오는 법
+			loader.load('image/3d/package/scene.gltf', function(gltf){
+				scene.add(gltf.scene);
+
+				function animate(){
+					requestAnimationFrame(animate)
+					gltf.scene.rotation.y += 0.01; // +=는 오른쪽으로 -=는 왼쪽으로
+					controls.update(); // 마우스 컨트롤 적용
+					renderer.render(scene, camera);
+					// 여기에 적으면 1초에 60번 실행됨
+				} // 마우스 컨트롤은 OrbitControl 가져다가 쓰면 됨.
+
+				animate()
+			});
+		</script>
+
+		<!--
+			three.js참고
+			https://www.youtube.com/watch?v=CojyGfCMvuU
+		 -->
+
+		<!-- <canvas id="scroll_pass"></canvas>
+
+		<div class="vid_max">
+			<iframe width="1920" height="1080" src="//www.youtube.com/embed/Ih7YZPvb5gM" title="[시원스쿨랩X장규리] 토익 시작할 땐 시원스쿨토익학습지 📕" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</div> -->
+	</bod>
 </html>
 
 <script>
-	const html = document.documentElement;
-	const canvas = document.getElementById("hero-lightpass");
-	const context = canvas.getContext("2d");
+	// 스크롤
+	// window.addEventListener("scroll", (event) => {
+	// 	let scroll = this.scrollY;
+	// 	console.log(scroll)
 
-	const frameCount = 16;
-	const currentFrame = index => ( `./image/dummy/img_${index}.jpg` )
+	// 	if ( scroll >= 3500 ) {
+	// 		const vidSrc = '//www.youtube.com/embed/Ih7YZPvb5gM?autoplay=1&loop=1&playlist=Ih7YZPvb5gM';
+	// 		$('.vid_max').css('z-index', '3');
+	// 		$('.vid_max iframe').attr('src', vidSrc);
+	// 	} else {
+	// 		$('#scroll_pass').css('z-index', '2');
+	// 	}
+	// });
 
-	const preloadImages = () => {
-		for (let i = 1; i < frameCount; i++) {
-			const img = new Image();
-			img.src = currentFrame(i);
+	// const html = document.documentElement;
+	// const canvas = document.getElementById("scroll_pass");
+	// const context = canvas.getContext("2d");
 
-			return false;
-		}
-	};
+	// const frameCount = 52;
+	// const currentFrame = index => ( `/image/dummy/toeic900_${index}.jpg` )
 
-	const img = new Image()
-		img.src = currentFrame(1);
-		canvas.width = 1920;
-		canvas.height = 1100;
-		img.onload=function(){
-		context.drawImage(img, 0, 0);
-	}
+	// const preloadImages = () => {
+	// 	for (let i = 1; i < frameCount; i++) {
+	// 		const img = new Image();
+	// 		img.src = currentFrame(i);
 
-	const updateImage = index => {
-		img.src = currentFrame(index);
-		context.drawImage(img, 0, 0);
-	}
+	// 		return false;
+	// 	}
+	// };
 
-	window.addEventListener('scroll', () => {
-		const scrollTop = html.scrollTop;
-		const maxScrollTop = html.scrollHeight - window.innerHeight;
-		const scrollFraction = scrollTop / maxScrollTop;
-		const frameIndex = Math.min(
-			frameCount - 1,
-			Math.ceil(scrollFraction * frameCount)
-		);
+	// const img = new Image()
+	// 	img.src = currentFrame(1);
+	// 	canvas.width = 1920;
+	// 	canvas.height = 1080;
+	// 	img.onload=function(){
+	// 	context.drawImage(img, 0, 0);
+	// }
 
-		requestAnimationFrame(() => updateImage(frameIndex + 1));
-	});
+	// const updateImage = index => {
+	// 	img.src = currentFrame(index);
+	// 	context.drawImage(img, 0, 0);
+	// }
 
-	preloadImages();
+	// window.addEventListener('scroll', () => {
+	// 	const scrollTop = html.scrollTop;
+	// 	const maxScrollTop = html.scrollHeight - window.innerHeight;
+	// 	const scrollFraction = scrollTop / maxScrollTop;
+	// 	const frameIndex = Math.min(
+	// 		frameCount - 1,
+	// 		Math.ceil(scrollFraction * frameCount)
+	// 	);
+
+	// 	requestAnimationFrame(() => updateImage(frameIndex + 1));
+	// });
+
+	// preloadImages();
 </script>

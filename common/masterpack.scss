@@ -1,0 +1,395 @@
+@charset "utf-8";
+
+html,body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	height: 800vw;
+}
+
+.progress_bar_con {
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 10px;
+	background: #555;
+
+	.progress_bar {
+		width: 0%;
+		height: 100%;
+		background: #91d835;
+	}
+}
+
+.world {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	perspective: 1000px;
+
+	.stage {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-style: preserve-3d;
+
+		.house {
+			width: 100vw;
+			height: 100vh;
+			transform: translateZ(-490VW);
+			transform-style: preserve-3d;
+
+			.wall {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background: rgba(255, 255, 255, 1);
+			}
+
+			.wall_front {
+
+				.wall_content {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 100vh;
+
+					.wall_tit {
+						font-size: 5rem;
+						text-align: center;
+					}
+				}
+			}
+
+			.wall_front_a {
+				position: relative;
+				transform: translateZ(450vw);
+
+				.siwon_pen {
+					position: absolute;
+					top: 45%;
+					right: 15%;
+					animation: swip_ani 0.5s infinite alternate;
+				}
+			}
+
+			.wall_front_b {
+				transform: translateZ(300vw);
+
+				.wall_tit {
+					margin: 0 30px;
+
+					.world_02 {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: 300px;
+						height: 400px;
+						perspective: 500px;
+						cursor: pointer;
+
+						.card_side {
+							position: absolute;
+							top: 0;
+							left: 0;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 300px;
+							height: 400px;
+							border-radius: 0.5em;
+							font-size: 1.5rem;
+							-webkit-backface-visibility: hidden;
+							backface-visibility: hidden;
+							transition: 1s;
+
+							img {
+								width: 100%;
+							}
+						}
+
+						.card_side_front {
+							z-index: 1;
+						}
+
+						.card_side_back {
+							transform: rotateY(-180deg);
+						}
+
+						&:hover .card_side_front {
+							transform: rotateY(-180deg);
+						}
+
+						&:hover .card_side_back {
+							transform: rotateY(-360deg);
+						}
+					}
+
+					.hand {
+						position: absolute;
+						right: 22%;
+						bottom: 25%;
+						// animation: zigzag 1.4s linear infinite;
+					}
+				}
+			}
+
+			.wall_front_c {
+				transform: translateZ(150vw);
+			}
+
+			.wall_front_d {
+				transform: translateZ(0vw);
+			}
+
+			.wall_front_e {
+				transform: translateZ(-150vw);
+
+				.cursor_bg {
+					position: absolute;
+					top: 27%;
+					left: 30%;
+					width: 33%;
+					height: 34%;
+					cursor: url('../image/siwonpen_1.cur') 10 10, auto !important;
+				}
+			}
+
+			// swiper
+			.wall_front_f {
+				transform: translateZ(-300vw);
+
+				.wall_content {
+					position: relative;
+
+					.swip_icon {
+						position: absolute;
+						top: 50px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: auto;
+						height: 60px;
+						padding: 0 50px;
+						background: #000;
+						font-weight: 400;
+						font-size: 1.5rem;
+						color: #fff;
+					}
+
+					.sl_book {
+						width: 90%;
+						margin-top: 100px;
+
+						.swiper-slide {
+							img {
+								width: 100%;
+							}
+						}
+
+						.navigation {
+							position: absolute;
+							top: 37%;
+							left: 15px;
+							width: 84vw;
+
+							.arrows {
+								z-index: 99;
+								position: absolute;
+								width: 90px;
+								height: 90px;
+								border-radius: 100%;
+								border: none;
+								background: #fff url('../image/sl_arrow.png') no-repeat;
+								background-size: 30px;
+								background-position: 25px center;
+								cursor: pointer;
+
+								&.next {
+									transform: rotate(180deg);
+									right: -50px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.wall_front_g {
+				transform: translateZ(-530vw);
+			}
+		}
+	}
+}
+
+@keyframes swip_ani {
+	from {
+		transform: translateX(-30px);
+	}
+	to {
+		transform: translateX(0px);
+	}
+}
+
+@keyframes zigzag{
+	0% {
+		transform: rotate(10deg)
+	}
+	49% {
+		transform: rotate(10deg)
+	}
+	50% {
+		transform: rotate(-5deg)
+	}
+	100% {
+		transform: rotate(-5deg)
+	}
+}
+
+// @keyframes spaceship_ani {
+// 	to {
+// 		background-position: -1295px 0;
+// 	}
+// }
+
+// .spaceship {
+// 	width: 185px;
+// 	height: 250px;
+// 	background: url('../image/books02.png') no-repeat 0 0 / auto 250px;
+// 	animation: spaceship_ani 2s infinite steps(7);
+// }
+
+// .box_container {
+// 	display: flex;
+
+// 	.box {
+// 		width: 100px;
+// 		height: 100px;
+// 		border: 2px solid #000;
+// 		background: rgba(255, 255, 0, 0.7);
+// 		transition: 1s;
+// 	}
+
+// 	.box:hover {
+// 		transform: scale(1.5);
+// 	}
+// }
+
+
+// index_bak.html
+// #daily_wrap {
+// 	/* 스크롤바 설정*/
+// 	&::-webkit-scrollbar{
+// 		width: 8px;
+// 	}
+// 	/* 스크롤바 막대 설정*/
+// 	&::-webkit-scrollbar-thumb{
+// 		height: 17%;
+// 		background: #91d835;
+// 		border-radius: 10px;
+// 	}
+// 	/* 스크롤바 뒷 배경 설정*/
+// 	&::-webkit-scrollbar-track{
+// 		background: rgba(145, 216, 53, 0.35);
+// 	}
+
+// 	.header {
+// 		z-index: 99999;
+// 		position: absolute;
+// 		top: 0;
+// 		display: flex;
+// 		justify-content: center;
+// 		width: 100%;
+// 	}
+
+// 	.daily_wrapper {
+// 		width: 100%;
+// 		padding-top: 140px;
+
+// 		.main_txt {
+// 			display: flex;
+// 			flex-direction: column;
+// 			justify-content: center;
+// 			align-items: center;
+// 			width: 100%;
+// 			height: calc(100vh - 140px);
+
+// 			.outer {
+// 				padding-bottom: 35px;
+// 				border-bottom: solid #000 2px;
+// 				overflow: hidden;
+
+// 				.inner {
+// 					position: relative;
+// 					font-weight: 700;
+// 					font-size: 65px;
+// 					color: #000;
+// 					line-height: 1.8;
+
+// 					span {
+// 						color: rgba(0, 0, 0, 0.2);
+// 					}
+// 				}
+
+// 			}
+
+// 			&.dark_bg {
+// 				background: #000;
+
+// 				.inner {
+// 					color: #fff;
+
+// 					span {
+// 						color: rgba(255, 255, 255, 0.3);
+// 					}
+// 				}
+// 			}
+// 		}
+
+// 		.apple {
+// 			position: relative;
+// 			display: flex;
+// 			justify-content: center;
+// 			align-items: center;
+// 			width: 100%;
+// 			height: 100vh;
+// 			background: #000;
+
+// 			#hero_lightpass {
+// 				max-width: 50vw;
+// 			}
+
+// 			.dark_bg {
+// 				position: absolute;
+// 				background: rgba(0, 0, 0, 0);
+// 			}
+// 		}
+// 	}
+
+// 	.footer {
+// 		z-index: 99999;
+// 		display: flex;
+// 		justify-content: center;
+// 		width: 100%;
+// 	}
+// }
