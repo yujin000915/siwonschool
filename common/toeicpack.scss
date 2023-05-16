@@ -23,6 +23,7 @@ $black: #111;
 		animation: scale 1.5s;
 
 		h1 {
+			margin-left: -290px;
 			font-weight: 600;
 			font-size: 290px;
 			color: $black;
@@ -59,8 +60,8 @@ $black: #111;
 
 	.visual_txt {
 		position: absolute;
-		top: -25%;
-		left: calc(50% - 182px);
+		top: -29%;
+		left: calc(50% - 330px);
 		width: 1000px;
 		height: 100%;
 
@@ -83,7 +84,7 @@ $black: #111;
 	.visual_img {
 		position: absolute;
 		top: calc(50% - 220px);
-		left: calc(50% - 300px);
+		left: calc(50% - 330px);
 		width: 100%;
 		height: 100%;
 
