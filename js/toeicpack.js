@@ -37,7 +37,8 @@ sjwScrollSections.forEach((sjwScrollSection) => {
 			},
 		});
 
-		tl.to(image, { height: 0 });
+		tl.to(image, { height: 0 })
+		.to(image, { opacity: 0 }, 0.66);
 	});
 
 	var texts = gsap.utils.toArray(sjwScrollSection.querySelectorAll('.roll'));

@@ -110,9 +110,12 @@ $black: #111;
 	height: 100%;
 
 	.video_bg {
+		overflow: hidden;
 		position: absolute;
 		top: 0;
 		left: 0;
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
 
 		&::after {
@@ -141,7 +144,52 @@ $black: #111;
 }
 
 .sec03 {
+	width: 100%;
+	height: 100%;
 
+	.point_txt {
+		position: absolute;
+		top: 0;
+		left: 20%;
+		width: 100%;
+		height: 43vh;
+
+		.roll {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+
+			h1 {
+				margin-bottom: 10px;
+				font-weight: 700;
+				font-size: 40px;
+				color: $color900;
+			}
+
+			h2 {
+				margin-bottom: 40px;
+				font-weight: 700;
+				font-size: 85px;
+				color: $black;
+			}
+
+			p {
+				font-size: 32px;
+				color: #555;
+				line-height: 1.6;
+			}
+		}
+	}
+
+	.scroll_img {
+		width: 100%;
+
+		.roll_img {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+	}
 }
 
 
@@ -201,7 +249,7 @@ $black: #111;
 .scroll_img {
 	position: relative;
 	width: 450px;
-	height: 80vh;
+	height: 100%;
 }
 
 .roll_img {
