@@ -30,6 +30,7 @@ $black: #111;
 
 		.sub_tit {
 			margin-left: 100px;
+			line-height: 1.2;
 
 			h2 {
 				font-weight: 500;
@@ -81,8 +82,8 @@ $black: #111;
 
 	.p-wrap {
 		position: absolute;
-		top: calc(50% - 350px);
-		left: calc(50% - 350px);
+		top: calc(50% - 220px);
+		left: calc(50% - 300px);
 		width: 100%;
 		height: 100%;
 
@@ -90,7 +91,7 @@ $black: #111;
 			z-index: auto;
 
 			img {
-				max-width: 700px;
+				max-width: 600px;
 				width: 100%;
 			}
 
