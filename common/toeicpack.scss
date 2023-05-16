@@ -20,10 +20,11 @@ $black: #111;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding-top: 40px;
 		animation: scale 1.5s;
 
 		h1 {
-			margin-left: -290px;
+			margin-left: -260px;
 			font-weight: 600;
 			font-size: 290px;
 			color: $black;
@@ -41,7 +42,7 @@ $black: #111;
 
 			h3 {
 				position: relative;
-				font-weight: 600;
+				font-weight: 800;
 				font-size: 70px;
 				color: $black;
 
@@ -60,8 +61,8 @@ $black: #111;
 
 	.visual_txt {
 		position: absolute;
-		top: -29%;
-		left: calc(50% - 330px);
+		top: -23%;
+		left: calc(50% - 290px);
 		width: 1000px;
 		height: 100%;
 
@@ -83,8 +84,8 @@ $black: #111;
 
 	.visual_img {
 		position: absolute;
-		top: calc(50% - 220px);
-		left: calc(50% - 330px);
+		top: calc(50% - 250px);
+		left: calc(50% - 365px);
 		width: 100%;
 		height: 100%;
 
@@ -92,7 +93,7 @@ $black: #111;
 			z-index: auto;
 
 			img {
-				max-width: 600px;
+				max-width: 640px;
 				width: 100%;
 			}
 
@@ -130,16 +131,21 @@ $black: #111;
 		height: 100%;
 
 		.roll {
-			top: -15%;
+			top: -9%;
+			font-weight: 700;
 			font-size: 70px;
 			color: #fff;
+			line-height: 1.4;
 		}
 	}
 }
 
-
-
 .sec03 {
+
+}
+
+
+.sec04 {
 	display: flex;
 	height: 100vh;
 	justify-content: space-around;
