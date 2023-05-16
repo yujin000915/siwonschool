@@ -16,7 +16,6 @@ ScrollTrigger.scrollerProxy(".scroller", {
 
 bodyScrollBar.addListener(ScrollTrigger.update);
 
-// 공통화
 gsap.set(".roll_img", { zIndex: (i, target, targets) => targets.length - i });
 
 var sjwScrollSections = gsap.utils.toArray('.sjw_scroll');
@@ -38,7 +37,7 @@ sjwScrollSections.forEach((sjwScrollSection) => {
 		});
 
 		tl.to(image, { height: 0 })
-		.to(image, { opacity: 0 }, 0.66);
+		.to(image, { opacity: 0 }, 0.001);
 	});
 
 	var texts = gsap.utils.toArray(sjwScrollSection.querySelectorAll('.roll'));
@@ -70,4 +69,16 @@ sjwScrollSections.forEach((sjwScrollSection) => {
 		end: () => "+=" + (images.length + 1) * window.innerHeight,
 		invalidateOnRefresh: true,
 	});
+});
+
+ScrollTrigger.create({
+	trigger: '.sec03',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.point_ani').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.point_ani').removeClass('on');
+	},
 });

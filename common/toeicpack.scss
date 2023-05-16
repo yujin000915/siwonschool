@@ -7,6 +7,11 @@ $black: #111;
 	to { transform: scale(1); }
 }
 
+@keyframes fadein_right {
+	0% { transform: translateX(50px); opacity: 0; }
+	100% { transform: translateX(0); opacity: 1; }
+}
+
 .scroller {
 	height: 100vh;
 }
@@ -188,6 +193,45 @@ $black: #111;
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
+
+			&.point_ani {
+				position: relative;
+
+				.p_ani {
+					opacity: 0;
+					position: absolute;
+					right: 0;
+
+					&.point_01a {
+						z-index: 3;
+						top: 7%;
+					}
+
+					&.point_01b {
+						z-index: 2;
+						top: 22%;
+					}
+
+					&.point_01c {
+						top: 37%;
+					}
+				}
+
+				&.on {
+					.p_ani {
+						animation: fadein_right 1s;
+						animation-fill-mode: forwards;
+
+						&.point_01b {
+							animation-delay: 0.25s;
+						}
+
+						&.point_01c {
+							animation-delay: 0.5s;
+						}
+					}
+				}
+			}
 		}
 	}
 }
