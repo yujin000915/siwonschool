@@ -82,3 +82,15 @@ ScrollTrigger.create({
 		$('.point_ani').removeClass('on');
 	},
 });
+
+ScrollTrigger.create({
+	trigger: '.sec04',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.sec04').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.sec04').removeClass('on');
+	},
+});
