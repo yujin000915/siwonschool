@@ -370,9 +370,46 @@ $black: #111;
 }
 
 .sec05 {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	background: $color900;
+
+	.study_123_txt {
+		.roll {
+			top: -27%;
+			font-weight: 900;
+			font-size: 330px;
+			color: #fff;
+		}
+	}
+
+	.study_123 {
+		position: absolute;
+		top: 70%;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+
+		h1,
+		h2 {
+			font-size: 35px;
+			text-align: center;
+			line-height: 1.3;
+		}
+
+		h1 {
+			font-weight: 400;
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		h2 {
+			font-weight: 600;
+			color: #fff;
+		}
+	}
 }
 
 .sec06 {
