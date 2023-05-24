@@ -84,7 +84,7 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
-	trigger: '.sec03',
+	trigger: '.sec_point',
 	scroller: ".scroller",
 	start: "top",
 	onEnter: () => {
@@ -96,13 +96,13 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
-	trigger: '.sec04',
+	trigger: '.sec_goods',
 	scroller: ".scroller",
 	start: "top",
 	onEnter: () => {
-		$('.sec04').addClass('on');
+		$('.sec_goods').addClass('on');
 	},
 	onLeaveBack: () => {
-		$('.sec04').removeClass('on');
+		$('.sec_goods').removeClass('on');
 	},
 });
