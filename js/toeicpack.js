@@ -72,6 +72,18 @@ sjwScrollSections.forEach((sjwScrollSection) => {
 });
 
 ScrollTrigger.create({
+	trigger: '.text700',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.toggle_switch').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.toggle_switch').removeClass('on');
+	},
+});
+
+ScrollTrigger.create({
 	trigger: '.sec03',
 	scroller: ".scroller",
 	start: "top",

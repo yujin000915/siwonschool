@@ -12,68 +12,98 @@ $black: #111;
 	100% { transform: translateX(0); opacity: 1; }
 }
 
+@keyframes draw_line {
+	0% { width: 0; }
+	100% { width: 175px; }
+}
+
 .scroller {
 	height: 100vh;
 }
 
 .visual {
 	position: relative;
-	width: 100%;
+	left: calc(50% - 700px);
+	width: 1400px;
 	height: 100vh;
 
 	&_tit {
+		position: relative;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding-top: 40px;
+		flex-direction: column;
+		height: 90vh;
+		margin-left: 0;
+		padding-top: 5%;
 		animation: scale 1.5s;
 
 		h1 {
-			margin-left: -260px;
-			font-weight: 600;
-			font-size: 290px;
+			font-weight: 300;
+			font-size: 60px;
 			color: $black;
 		}
 
 		.sub_tit {
-			margin-left: 100px;
-			line-height: 1.2;
+			display: flex;
+			align-items: center;
+			margin-top: -25px;
+			font-weight: 700;
+			font-size: 224px;
+			color: $black;
 
-			h2 {
-				font-weight: 500;
-				font-size: 70px;
-				color: $black;
-			}
-
-			h3 {
+			.toggle_switch {
 				position: relative;
-				font-weight: 800;
-				font-size: 70px;
-				color: $black;
+				width: 305px;
+				height: 165px;
+				margin: 0 20px;
+				border-radius: 83px;
+				background: linear-gradient(90deg, #f52d4f, #8349cb);
 
-				&::after {
-					content: '';
+				span {
+					display: block;
 					position: absolute;
-					top: 50%;
-					left: 360px;
-					width: 175px;
-					height: 1px;
-					background: $black;
+					top: 20px;
+					left: 20px;
+					width: 125px;
+					height: 125px;
+					background: #fff;
+					border-radius: 50%;
+					transition: all 1s;
+				}
+
+				&.on {
+					span {
+						left: 160px;
+					}
 				}
 			}
+		}
+
+		h2 {
+			position: absolute;
+			bottom: 11%;
+			left: 0;
+			font-weight: 600;
+			font-size: 42px;
+		}
+
+		h3 {
+			position: absolute;
+			bottom: 5%;
+			left: 0;
+			font-size: 36px;
 		}
 	}
 
 	.visual_txt {
 		position: absolute;
-		top: -23%;
-		left: calc(50% - 290px);
-		width: 1000px;
+		top: -20%;
+		left: 0;
+		width: auto;
 		height: 100%;
 
 		.roll {
 			font-weight: 600;
-			font-size: 290px;
+			font-size: 350px;
 			text-align: right;
 
 			&.text700 {
@@ -89,8 +119,8 @@ $black: #111;
 
 	.visual_img {
 		position: absolute;
-		top: calc(50% - 250px);
-		left: calc(50% - 365px);
+		top: 26%;
+		left: 57%;
 		width: 100%;
 		height: 100%;
 
@@ -155,7 +185,7 @@ $black: #111;
 	.point_txt {
 		position: absolute;
 		top: 0;
-		left: 20%;
+		left: 17%;
 		width: 100%;
 		height: 43vh;
 
@@ -373,7 +403,7 @@ $black: #111;
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background: $color900;
+	background: $black;
 
 	.study_123_txt {
 		.roll {
