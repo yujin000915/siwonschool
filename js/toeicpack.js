@@ -1,10 +1,9 @@
 $(document).ready(function() {
-	// 탭메뉴 디폴트 on
+
 	if ( $('div[id^="tmenu_comm"]').length ) {
 		$('.tmenu li:first-child', this).addClass('on');
 		$('.tcon> li', this).not('li:first-child').css({ 'display': 'none' });
 
-		//aria 추가
 		if ($('div[id^="tmenu_comm"]').hasClass('aria')) {
 			const ariaObj = '.tmenu_wrap.aria>';
 			$(ariaObj + '.tmenu').attr('role', 'tablist'),
@@ -21,6 +20,7 @@ $(document).ready(function() {
 			})
 		}
 	}
+
 	$('div[id^="tmenu_comm"] .tmenu li').not('li.off').on('click', function() {
 		thisWraptmenu = $(this).parent().parent();
 		idx = $(this).index();
@@ -31,6 +31,7 @@ $(document).ready(function() {
 			$('.tcon> li', thisWraptmenu).eq(idx).show();
 		}
 	});
+
 });
 
 gsap.registerPlugin(ScrollTrigger);
