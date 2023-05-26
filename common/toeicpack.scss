@@ -2,14 +2,14 @@ $color700: #f52d4f;
 $color900: #894cd4;
 $black: #111;
 
-@keyframes scale_plus {
-	from { transform: scale(1.8); }
-	to { transform: scale(1); }
+@keyframes scale_min {
+	from { opacity: 0; transform: scale(1.8); }
+	to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes scale_minus {
-	from { transform: scale(1); }
-	to { transform: scale(1.8); }
+@keyframes scale_max {
+	from { opacity: 0; transform: scale(1); }
+	to { opacity: 1; transform: scale(1.8); }
 }
 
 @keyframes fadein_right {
@@ -50,7 +50,6 @@ $black: #111;
 	}
 }
 
-
 .visual {
 	position: relative;
 	left: calc(50% - 700px);
@@ -58,13 +57,16 @@ $black: #111;
 	height: 100vh;
 
 	&_tit {
+		opacity: 0;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		height: 90vh;
 		margin-left: 0;
 		padding-top: 5%;
-		animation: scale_plus 1.5s;
+		animation: scale_min 1.5s;
+		animation-delay: 0.2s;
+		animation-fill-mode: forwards;
 
 		h1 {
 			font-weight: 300;
@@ -155,6 +157,7 @@ $black: #111;
 		height: 100%;
 
 		.roll_img {
+			opacity: 0;
 			z-index: auto;
 
 			img {
@@ -163,7 +166,9 @@ $black: #111;
 			}
 
 			&.img700 {
-				animation: scale 1.5s;
+				animation: scale_min 1.5s;
+				animation-delay: 0.2s;
+				animation-fill-mode: forwards;
 			}
 		}
 	}
@@ -654,6 +659,7 @@ $black: #111;
 
 		li {
 			position: absolute;
+			transition: all 1s;
 			cursor: pointer;
 
 			&.watch {
@@ -688,7 +694,8 @@ $black: #111;
 						position: relative;
 						width: 255px;
 						margin-left: -50px;
-						transform: rotate(-7deg)
+						transform: rotate(-7deg);
+						transition: all 1s;
 					}
 				}
 			}
@@ -754,18 +761,16 @@ $black: #111;
 
 		.goods_img {
 			li {
-				transition: all 1s;
 				opacity: 0;
 
 				&.goods_pad {
 					opacity: 1;
 					top: 42%;
-					animation: scale_minus 1.5s;
+					animation: scale_max 1.5s;
 					animation-fill-mode: forwards;
 
 					.pad {
 						&02 {
-							transition: all 1s;
 							margin-left: -30px;
 							transform: rotate(0deg);
 						}
