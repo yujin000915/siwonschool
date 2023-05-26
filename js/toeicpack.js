@@ -51,7 +51,7 @@ ScrollTrigger.scrollerProxy(".scroller", {
 
 bodyScrollBar.addListener(ScrollTrigger.update);
 
-gsap.set(".roll_img", { zIndex: (i, target, targets) => targets.length - i });
+gsap.set(".roll_img", { zIndex: (i, target, targets) => targets.length + i });
 
 var sjwScrollSections = gsap.utils.toArray('.sjw_scroll');
 
@@ -127,6 +127,47 @@ ScrollTrigger.create({
 	},
 	onLeaveBack: () => {
 		$('.point_ani').removeClass('on');
+	},
+});
+
+ScrollTrigger.create({
+	trigger: '.study_txt01',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.study_sub_txt').removeClass('on');
+		$('.study_sub_txt01').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.study_sub_txt01').removeClass('on');
+	},
+});
+
+ScrollTrigger.create({
+	trigger: '.study_txt02',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.study_sub_txt').removeClass('on');
+		$('.study_sub_txt02').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.study_sub_txt02').removeClass('on');
+		$('.study_sub_txt01').addClass('on');
+	},
+});
+
+ScrollTrigger.create({
+	trigger: '.study_txt03',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.study_sub_txt').removeClass('on');
+		$('.study_sub_txt03').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.study_sub_txt03').removeClass('on');
+		$('.study_sub_txt02').addClass('on');
 	},
 });
 
