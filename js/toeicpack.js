@@ -131,6 +131,18 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
+	trigger: '.sec_curri',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.cube_wrap').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.cube_wrap').removeClass('on');
+	},
+});
+
+ScrollTrigger.create({
 	trigger: '.study_txt01',
 	scroller: ".scroller",
 	start: "top",
