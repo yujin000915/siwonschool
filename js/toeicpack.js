@@ -1,3 +1,38 @@
+$(document).ready(function() {
+	// 탭메뉴 디폴트 on
+	if ( $('div[id^="tmenu_comm"]').length ) {
+		$('.tmenu li:first-child', this).addClass('on');
+		$('.tcon> li', this).not('li:first-child').css({ 'display': 'none' });
+
+		//aria 추가
+		if ($('div[id^="tmenu_comm"]').hasClass('aria')) {
+			const ariaObj = '.tmenu_wrap.aria>';
+			$(ariaObj + '.tmenu').attr('role', 'tablist'),
+			$(ariaObj + '.tcon>li').attr('role','tabpanel'),
+			$(ariaObj + '.tmenu li').attr('tabindex', 0),
+			$(ariaObj + '.tmenu li:first-child').attr('aria-selected', true).siblings('li').attr('aria-selected', false);
+			$(ariaObj + '.tmenu li').each(function() {
+				let parentId = $(this).closest('.tmenu_wrap').attr('id'),
+					tmenuIdx = $(this).index(),
+					tmenuId = parentId + '-tab-' + tmenuIdx,
+					tconId = parentId + '-section-' + tmenuIdx;
+				$(this).attr('id', tmenuId).attr('aria-controls', tconId);
+				$(this).closest('.tmenu_wrap').find('>ul.tcon').children('li').eq(tmenuIdx).attr('id', tconId).attr('aria-labelledby', tmenuId);
+			})
+		}
+	}
+	$('div[id^="tmenu_comm"] .tmenu li').not('li.off').on('click', function() {
+		thisWraptmenu = $(this).parent().parent();
+		idx = $(this).index();
+		if ( !$(this).hasClass('on') ) {
+			$('.tmenu li', thisWraptmenu).removeClass('on');
+			$(this).addClass('on');
+			$('.tcon> li', thisWraptmenu).hide();
+			$('.tcon> li', thisWraptmenu).eq(idx).show();
+		}
+	});
+});
+
 gsap.registerPlugin(ScrollTrigger);
 
 let bodyScrollBar = Scrollbar.init(document.body, {
@@ -96,7 +131,7 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
-	trigger: '.sec_goods',
+	trigger: '.menopad_tit',
 	scroller: ".scroller",
 	start: "top",
 	onEnter: () => {
