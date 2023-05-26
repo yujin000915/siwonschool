@@ -597,15 +597,16 @@ $black: #111;
 }
 
 .sec_goods {
-	position: relative;
+	height: 100vh;
 
 	.scroll_txt {
+		height: 100vh;
+
 		.goods_tit {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
-			height: 100vh;
-			top: -13vh;
+			top: -13%;
 
 			h1 {
 				font-weight: 600;
@@ -622,9 +623,8 @@ $black: #111;
 		}
 
 		.menopad_tit {
-			top: -40vh;
+			top: -41%;
 			width: 100%;
-			height: 100vh;
 			display: flex;
 			flex-direction: column;
 			padding: 0 7%;
@@ -783,6 +783,7 @@ $black: #111;
 	align-items: center;
 	width: 100%;
 	height: 100vh;
+	background: #fff;
 
 	.apply_tab {
 		width: 1200px;
