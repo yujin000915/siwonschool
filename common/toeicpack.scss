@@ -38,6 +38,58 @@ $black: #111;
 	100% { height: 95px; }
 }
 
+@keyframes goods_watch {
+	0% { opacity: 0; top: 30%; left: 35%; }
+	100% { opacity: 1; top: 12%; left: 22%;	}
+}
+
+@keyframes goods_answer {
+	0% { opacity: 0; top: 30%; left: 35%; }
+	100% { opacity: 1; top: 9%; left: 58%;}
+}
+
+@keyframes goods_voca {
+	0% { opacity: 0; top: 30%; left: 35%; }
+	100% { opacity: 1; top: 47%; left: 10%;	}
+}
+
+@keyframes goods_pad {
+	0% { opacity: 0; top: 30%; left: 35%; }
+	100% { opacity: 1; top: 58%; left: 36%;	}
+}
+
+@keyframes goods_sticker {
+	0% { opacity: 0; top: 30%; left: 35%; }
+	100% { opacity: 1; top: 45%; left: 70%;	}
+}
+
+@keyframes sticker01 {
+	0% { transform: scale(1); }
+	30% { transform: scale(2); }
+	100% { transform: scale(1); top: 17%; left: 64.5%; }
+}
+
+@keyframes sticker02 {
+	0% { transform: scale(1); }
+	10% { transform: scale(2); }
+	30% { transform: scale(2); }
+	100% { transform: scale(1); top: 18%; left: 70.8%; }
+}
+
+@keyframes sticker03 {
+	0% { transform: scale(1); }
+	10% { transform: scale(2); }
+	30% { transform: scale(2); }
+	100% { transform: scale(1); top: 19%; left: 76.8%; }
+}
+
+@keyframes sticker04 {
+	0% { transform: scale(1); }
+	10% { transform: scale(2); }
+	30% { transform: scale(2); }
+	100% { transform: scale(1); top: 20.5%; left: 82.7%; }
+}
+
 // 공통
 .scroller {
 	height: 100vh;
@@ -728,11 +780,12 @@ $black: #111;
 
 .sec_goods {
 	height: 100vh;
+	background: #f9f9f9;
 
 	.scroll_txt {
 		height: 100vh;
 
-		.goods_tit {
+		.roll {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
@@ -752,26 +805,14 @@ $black: #111;
 			}
 		}
 
-		.menopad_tit {
-			top: -41%;
+		.memopad_tit {
+			top: -38%;
 			width: 100%;
 			display: flex;
 			flex-direction: column;
-			padding: 0 7%;
+			padding: 0 13%;
 			text-align: left;
 			box-sizing: border-box;
-
-			h1 {
-				margin-bottom: 40px;
-				font-weight: 700;
-				font-size: 85px;
-				color: $black;
-			}
-
-			h2 {
-				font-size: 32px;
-				color: #555;
-			}
 		}
 	}
 
@@ -784,53 +825,69 @@ $black: #111;
 		height: 100vh;
 
 		li {
+			opacity: 0;
 			position: absolute;
 			transition: all 1s;
 			cursor: pointer;
 
+			img {
+				width: 70%;
+			}
+
 			&.watch {
-				top: 7%;
-				left: 15%;
+				animation: goods_watch 1s;
+				animation-delay: 0.5s;
+				animation-fill-mode: forwards;
 			}
 
 			&.answer {
-				top: 8%;
-				left: 60%;
+				animation: goods_answer 1s;
+				animation-delay: 0.5s;
+				animation-fill-mode: forwards;
 			}
 
 			&.voca {
-				top: 44%;
-				left: 5%;
+				animation: goods_voca 1s;
+				animation-fill-mode: forwards;
 			}
 
 			&.goods_pad {
-				top: 57%;
-				left: 35%;
+				animation: goods_pad 1s;
+				animation-delay: 0.5s;
+				animation-fill-mode: forwards;
 
 				.pad {
-					&01 {
+					&01,
+					&03 {
 						z-index: 2;
 						position: relative;
-						width: 255px;
+						width: 230px;
 						margin-top: 30px;
 					}
 
 					&02 {
 						z-index: 1;
 						position: relative;
-						width: 255px;
+						width: 230px;
 						margin-left: -50px;
 						transform: rotate(-7deg);
 						transition: all 1s;
 					}
+
+					&03 {
+						display: none;
+					}
+				}
+
+				.sticker_wrap {
+					display: none;
 				}
 			}
 
 			&.sticker {
-				top: 45%;
-				left: 70%;
+				animation: goods_sticker 1s;
+				animation-fill-mode: forwards;
 			}
-
 
 			.hover_info {
 				display: none;
@@ -879,7 +936,7 @@ $black: #111;
 
 	&.on {
 		.scroll_txt {
-			.menopad_tit {
+			.memopad_tit {
 				z-index: 999;
 				position: relative;
 			}
@@ -887,18 +944,67 @@ $black: #111;
 
 		.goods_img {
 			li {
-				opacity: 0;
+				opacity: 0 !important;
 
 				&.goods_pad {
-					opacity: 1;
+					opacity: 1 !important;
 					top: 42%;
+					left: 37%;
 					animation: scale_max 1.5s;
 					animation-fill-mode: forwards;
 
 					.pad {
+						&01 {
+							display: none;
+						}
+
 						&02 {
 							margin-left: -30px;
 							transform: rotate(0deg);
+						}
+
+						&03 {
+							display: inline-block;
+						}
+					}
+
+					.sticker_wrap {
+						display: inline-block;
+
+						.stick {
+							opacity: 1 !important;
+							z-index: 9;
+							position: absolute;
+							top: 24%;
+							left: 8%;
+							width: 35px;
+							animation: sticker01 2.5s;
+							animation-delay: 1s;
+							animation-fill-mode: forwards;
+
+							&_02 {
+								top: 38.53%;
+								left: 28.02%;
+								animation: sticker02 2.5s;
+								animation-delay: 1.5s;
+								animation-fill-mode: forwards;
+							}
+
+							&_03 {
+								top: 56.3%;
+								left: 16.3%;
+								animation: sticker03 2.5s;
+								animation-delay: 2s;
+								animation-fill-mode: forwards;
+							}
+
+							&_04 {
+								top: 70.8%;
+								left: 36.3%;
+								animation: sticker04 2.5s;
+								animation-delay: 2.5s;
+								animation-fill-mode: forwards;
+							}
 						}
 					}
 				}

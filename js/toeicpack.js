@@ -197,7 +197,7 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
-	trigger: '.menopad_tit',
+	trigger: '.memopad_tit',
 	scroller: ".scroller",
 	start: "top",
 	onEnter: () => {
