@@ -197,6 +197,19 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
+	trigger: '.sec_goods',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.goods_img').addClass('active');
+	},
+	onLeaveBack: () => {
+		$('.goods_img').removeClass('active');
+	},
+});
+
+
+ScrollTrigger.create({
 	trigger: '.memopad_tit',
 	scroller: ".scroller",
 	start: "top",
