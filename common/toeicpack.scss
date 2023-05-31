@@ -497,7 +497,7 @@ $black: #111;
 
 	.cube_wrap {
 		position: absolute;
-		top: 12%;
+		top: 17%;
 		right: 13%;
 		width: 600px;
 		height: 530px;
@@ -606,7 +606,7 @@ $black: #111;
 			.txt {
 				opacity: 0;
 				position: absolute;
-				top: 62%;
+				top: 56%;
 				left: 16%;
 				display: flex;
 				flex-direction: column;
@@ -626,7 +626,7 @@ $black: #111;
 				}
 
 				&:nth-child(2) {
-					top: 45%;
+					top: 41%;
 					left: 51%;
 
 					h4 {
@@ -635,7 +635,7 @@ $black: #111;
 				}
 
 				&:last-child {
-					top: 28%;
+					top: 26%;
 					left: 84%;
 
 					h4 {
@@ -1048,7 +1048,7 @@ $black: #111;
 		.tmenu {
 			position: absolute;
 			bottom: 20%;
-			right: 13%;
+			right: 16%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -1126,7 +1126,7 @@ $black: #111;
 	.bt_apply {
 		position: absolute;
 		bottom: 22%;
-		left: 18%;
+		left: 21%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
