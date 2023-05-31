@@ -132,6 +132,18 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
+	trigger: '.sec_workbook_tit',
+	scroller: ".scroller",
+	start: "top",
+	onEnter: () => {
+		$('.workbook_list').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.workbook_list').removeClass('on');
+	},
+});
+
+ScrollTrigger.create({
 	trigger: '.sec_curri',
 	scroller: ".scroller",
 	start: "top",
