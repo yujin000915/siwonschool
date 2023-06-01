@@ -103,7 +103,7 @@ sjwScrollSections.forEach((sjwScrollSection) => {
 		trigger: sjwScrollSection,
 		scroller: ".scroller",
 		scrub: true,
-		markers: true,
+		markers: false, // 애니메이션 시작과 끝 표시 요소
 		pin: true,
 		start: () => "top top",
 		end: () => "+=" + (images.length + 1) * window.innerHeight,
