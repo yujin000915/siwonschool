@@ -34,6 +34,10 @@ $(document).ready(function() {
 
 });
 
+setInterval(function() {
+	$('.visual').addClass('active');
+}, 500);
+
 gsap.registerPlugin(ScrollTrigger);
 
 let bodyScrollBar = Scrollbar.init(document.body, {
