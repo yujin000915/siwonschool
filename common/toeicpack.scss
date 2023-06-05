@@ -315,6 +315,15 @@ $black: #111;
 			line-height: 1.4;
 		}
 	}
+
+	&.on {
+		overflow: hidden;
+		width: 60% !important;
+		height: 60% !important;
+		border-radius: 40px;
+		margin: 0 auto !important;
+		transition: all 2s;
+	}
 }
 
 .sec_point {
@@ -1100,4 +1109,103 @@ $black: #111;
 			}
 		}
 	}
+}
+
+.sec_logo {
+}
+#logo{
+    animation: fill 0.5s ease forwards 4s;
+}
+
+#logo path:nth-child(1){
+    stroke-dasharray: 743;
+    stroke-dashoffset: 743;
+    animation: anims 2s ease forwards;
+}
+#logo path:nth-child(2){
+    stroke-dasharray: 501;
+    stroke-dashoffset: 501;
+    animation: anims 2s ease forwards  0.3s;
+
+}
+#logo path:nth-child(3){
+    stroke-dasharray: 501;
+    stroke-dashoffset: 501;
+    animation: anims 2s ease forwards 0.6s;
+
+}
+#logo path:nth-child(4){
+    stroke-dasharray: 683;
+    stroke-dashoffset: 683;
+    animation: anims 2s ease forwards 0.9s;
+
+}
+#logo path:nth-child(5){
+    stroke-dasharray: 454;
+    stroke-dashoffset: 454;
+    animation: anims 2s ease forwards 1.2s;
+
+}
+#logo path:nth-child(6){
+    stroke-dasharray: 554;
+    stroke-dashoffset: 554;
+    animation: anims 2s ease forwards 1.5s;
+
+}
+#logo path:nth-child(7){
+    stroke-dasharray: 549;
+    stroke-dashoffset: 549;
+    animation: anims 2s ease forwards 1.8s;
+
+}
+#logo path:nth-child(8){
+    stroke-dasharray: 680;
+    stroke-dashoffset: 680;
+    animation: anims 2s ease forwards 2.1s;
+
+}
+#logo path:nth-child(9){
+    stroke-dasharray: 743;
+    stroke-dashoffset: 743;
+    animation: anims 2s ease forwards 2.4s;
+
+}
+#logo path:nth-child(10){
+    stroke-dasharray: 501;
+    stroke-dashoffset: 501;
+    animation: anims 2s ease forwards 2.7s;
+
+}
+#logo path:nth-child(11){
+    stroke-dasharray: 501;
+    stroke-dashoffset: 501;
+    animation: anims 2s ease forwards 3.0s;
+
+}
+#logo path:nth-child(12){
+    stroke-dasharray: 683;
+    stroke-dashoffset: 683;
+    animation: anims 2s ease forwards 3.1s;
+
+}
+#logo path:nth-child(13){
+    stroke-dasharray: 454;
+    stroke-dashoffset: 454;
+    animation: anims 2s ease forwards 3.1s;
+
+}
+
+@keyframes anims{
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill{
+    from{
+        fill: transparent;
+    }
+    to{
+        fill: #308D46;
+    }
 }

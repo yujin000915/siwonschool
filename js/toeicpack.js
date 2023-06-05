@@ -126,7 +126,19 @@ ScrollTrigger.create({
 ScrollTrigger.create({
 	trigger: '.sec_point',
 	scroller: ".scroller",
-	start: "top",
+	start: "top-=90%",
+	onEnter: () => {
+		$('.sec_vid').addClass('on');
+	},
+	onLeaveBack: () => {
+		$('.sec_vid').removeClass('on');
+	},
+});
+
+ScrollTrigger.create({
+	trigger: '.sec_point',
+	scroller: ".scroller",
+	start: "top-=500px",
 	onEnter: () => {
 		$('.point_ani').addClass('on');
 	},
@@ -212,3 +224,9 @@ ScrollTrigger.create({
 		$('.sec_goods').removeClass('on');
 	},
 });
+
+
+// svg
+const pathLen = $('path').length;
+
+console.log(pathLen);
