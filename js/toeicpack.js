@@ -169,6 +169,7 @@ ScrollTrigger.create({
 	},
 	onLeaveBack: () => {
 		$('.study_sub_txt01').removeClass('on');
+        $('.sec_study123').css('background', '#20245a');
 	},
 });
 
@@ -179,10 +180,12 @@ ScrollTrigger.create({
 	onEnter: () => {
 		$('.study_sub_txt').removeClass('on');
 		$('.study_sub_txt02').addClass('on');
+        $('.sec_study123').css('background', '#f52d4f');
 	},
 	onLeaveBack: () => {
 		$('.study_sub_txt02').removeClass('on');
 		$('.study_sub_txt01').addClass('on');
+        $('.sec_study123').css('background', '#20245a');
 	},
 });
 
@@ -193,10 +196,12 @@ ScrollTrigger.create({
 	onEnter: () => {
 		$('.study_sub_txt').removeClass('on');
 		$('.study_sub_txt03').addClass('on');
+        $('.sec_study123').css('background', '#894cd4');
 	},
 	onLeaveBack: () => {
 		$('.study_sub_txt03').removeClass('on');
 		$('.study_sub_txt02').addClass('on');
+        $('.sec_study123').css('background', '#f52d4f');
 	},
 });
 
