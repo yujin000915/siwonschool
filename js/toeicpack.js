@@ -169,7 +169,7 @@ ScrollTrigger.create({
 	},
 	onLeaveBack: () => {
 		$('.study_sub_txt01').removeClass('on');
-        $('.sec_study123').css('background', '#20245a');
+		$('.sec_study123').css('background', '#894cd4');
 	},
 });
 
@@ -180,12 +180,12 @@ ScrollTrigger.create({
 	onEnter: () => {
 		$('.study_sub_txt').removeClass('on');
 		$('.study_sub_txt02').addClass('on');
-        $('.sec_study123').css('background', '#f52d4f');
+		$('.sec_study123').css('background', '#651ba2');
 	},
 	onLeaveBack: () => {
 		$('.study_sub_txt02').removeClass('on');
 		$('.study_sub_txt01').addClass('on');
-        $('.sec_study123').css('background', '#20245a');
+		$('.sec_study123').css('background', '#894cd4');
 	},
 });
 
@@ -196,12 +196,12 @@ ScrollTrigger.create({
 	onEnter: () => {
 		$('.study_sub_txt').removeClass('on');
 		$('.study_sub_txt03').addClass('on');
-        $('.sec_study123').css('background', '#894cd4');
+		$('.sec_study123').css('background', '#3f1b83');
 	},
 	onLeaveBack: () => {
 		$('.study_sub_txt03').removeClass('on');
 		$('.study_sub_txt02').addClass('on');
-        $('.sec_study123').css('background', '#f52d4f');
+		$('.sec_study123').css('background', '#651ba2');
 	},
 });
 
@@ -236,28 +236,28 @@ ScrollTrigger.create({
 	onEnter: () => {
 		setTextAnimation(0, 5, 2,'ease','#20245a',true);
 
-        setInterval(function() {
-            $('.hide_text').hide();
-            $('#lab_l').css('transform', 'translateX(34%)');
-            $('#lab_a').css('transform', 'translateX(20%)');
-            $('#lab_b').css('transform', 'translateX(10%)');
-        }, 3500);
+		setInterval(function() {
+			$('.hide_text').hide();
+			$('#lab_l').css('transform', 'translateX(34%)');
+			$('#lab_a').css('transform', 'translateX(20%)');
+			$('#lab_b').css('transform', 'translateX(10%)');
+		}, 3500);
 	},
 });
 
 // svg
 function setTextAnimation(delay, duration, strokeWidth, timingFunction, strokeColor, repeat) {
-    let paths = document.querySelectorAll("path");
-    let mode=repeat?'forwards':'infinite'
-    for (let i = 0; i < paths.length; i++) {
-        const path = paths[i];
-        const length = path.getTotalLength();
-        path.style["stroke-dashoffset"] = `${length}px`;
-        path.style["stroke-dasharray"] = `${length}px`;
-        path.style["stroke-width"] = `${strokeWidth}px`;
-        path.style["stroke"] = `${strokeColor}`;
-        path.style["animation"] = `${duration}s svg-text-anim ${mode} ${timingFunction}`;
-        path.style["animation-delay"] = `${i * delay}s`;
-    }
+	let paths = document.querySelectorAll("path");
+	let mode=repeat?'forwards':'infinite'
+	for (let i = 0; i < paths.length; i++) {
+		const path = paths[i];
+		const length = path.getTotalLength();
+		path.style["stroke-dashoffset"] = `${length}px`;
+		path.style["stroke-dasharray"] = `${length}px`;
+		path.style["stroke-width"] = `${strokeWidth}px`;
+		path.style["stroke"] = `${strokeColor}`;
+		path.style["animation"] = `${duration}s svg-text-anim ${mode} ${timingFunction}`;
+		path.style["animation-delay"] = `${i * delay}s`;
+	}
 }
 
